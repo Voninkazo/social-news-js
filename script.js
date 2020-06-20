@@ -63,11 +63,16 @@ function addLinks() {
   let newTitle = prompt(`Your link title`);
   let newUrl = prompt(`And its url`);
   let newAthor = prompt(`Then the author`);
+  if (!newUrl.startsWith(`http`)) {
+    newUrl = `http://${newUrl}`;
+  } else {
+    return newUrl;
+  }
   // This is the newObject
   let newLink = {
     title: newTitle,
     url: newUrl,
-    author:newAthor
+    author: newAthor
   }
   //And we push it into the link array
   myLinks.push(newLink);
