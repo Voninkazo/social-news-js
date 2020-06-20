@@ -29,13 +29,13 @@ const choices = `Welcome to my social links!
 1 : Show links
 2 : Add a link
 3 : Remove a link
-0 : Quite`;
+0 : Quit`;
 
 // Here we will create the prompt for users to enter their choice
 let choiceMenue = Number(prompt(choices));
 //Here we create a whie loop to wrap all the conditions
 while (choiceMenue !== 0) {
-  switch(choiceMenue) {
+  switch (choiceMenue) {
     case 1:
       showLinks();
       break;
@@ -44,9 +44,6 @@ while (choiceMenue !== 0) {
       break;
     case 3:
       removeLinks();
-      break;
-    case 0:
-      alert(`See you!`);
       break;
     default:
       alert(`Choose between 1, 2, 3, 0`);
@@ -66,5 +63,20 @@ function addLinks() {
   let newTitle = prompt(`Your link title`);
   let newUrl = prompt(`And its url`);
   let newAthor = prompt(`Then the author`);
+  // This is the newObject
+  let newLink = { title: newTitle, url: newUrl, author: newAthor }
+  //And we push it into the link array
+  myLinks.push(newLink);
 }
 
+//And a fucntion for removing an existing link
+function removeLinks() {
+  let indexToRemove = prompt(`Which index do you want to remove? Choose between 0 to 4`);
+  if (indexToRemove < myLinks.length) {
+    myLinks.splice(indexToRemove, 1);
+  }
+  return myLinks;
+}
+
+// Here is the end of the program, in other word when you want to quit
+alert(`See you!`);
