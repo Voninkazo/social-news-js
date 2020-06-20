@@ -64,9 +64,14 @@ function addLinks() {
   let newUrl = prompt(`And its url`);
   let newAthor = prompt(`Then the author`);
   // This is the newObject
-  let newLink = { title: newTitle, url: newUrl, author: newAthor }
+  let newLink = {
+    title: newTitle,
+    url: newUrl,
+    author:newAthor
+  }
   //And we push it into the link array
   myLinks.push(newLink);
+  alert(`You've added a new link in your list`);
 }
 
 //And a fucntion for removing an existing link
@@ -74,6 +79,7 @@ function removeLinks() {
   let indexToRemove = prompt(`Which index do you want to remove? Choose between 0 to 4`);
   if (indexToRemove < myLinks.length) {
     myLinks.splice(indexToRemove, 1);
+    alert(`You've removed a link`);
   }
   return myLinks;
 }
